@@ -50,7 +50,7 @@
               "echarts",
               "lodash",
               "zrender/lib/svg/svg",
-              "zrender/lib/vml/vml", 
+              "zrender/lib/vml/vml",
               "eva-icons"
             ],
             "vendorChunk": true,

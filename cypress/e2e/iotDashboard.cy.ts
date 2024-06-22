@@ -1,9 +1,17 @@
-describe('Home - IoT Dashboard', () => {
+import { homePage } from "../pages/homePage";
 
-    it('@Medium - Verify to toggle Light is ON/OFF', () => {
-        cy.visit('http://localhost:4200/')
-        cy.get(':nth-child(1) > ngx-status-card > nb-card > .details > .status').should('have.text', 'ON')
-        cy.get('ngx-status-card > nb-card > .details > .title').first().click();
-        cy.get('ngx-status-card > nb-card > .details > .status').first().should('have.text', 'OFF')
-    })
-})
+describe("Home - IoT Dashboard", () => {
+  beforeEach(() => {
+    homePage.navigateTo();
+  });
+
+  it("Verify to toggle Light is OFF", () => {
+    homePage.toggleLightOFF();
+    homePage.validateLightStatus("OFF");
+  });
+
+  it("Verify to change the website theme to be Cosmic", () => {
+    homePage.selectTheme("Cosmic");
+    homePage.validateTheme();
+  });
+});
