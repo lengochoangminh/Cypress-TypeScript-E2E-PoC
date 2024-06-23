@@ -11,3 +11,9 @@
 
 - Run all tests under e2e folder: `npx cypress run`
 - Run the tests by the specified tags: `npx cypress run --spec cypress/e2e/iotDashboard.cy.ts`
+
+## Feature Keywords
+
+- Implemented the tests in the Page Object Model design pattern
+
+- Installed Prettier and ESLint to help solve common errors and consistency your code base

@@ -11,8 +11,7 @@
     "target": "es2020",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2020", "dom"],
-    "types": ["cypress", "node"],
-    "plugins": [{ "name": "tslint-language-service" }]
+    "types": ["cypress", "node"]
   },
   "include": ["**/*.ts"]
 }

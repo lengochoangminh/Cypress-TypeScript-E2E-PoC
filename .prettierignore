@@ -1,1 +1,5 @@
-README.md
+.angular
+node_modules
+.vscode
+
+src
