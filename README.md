@@ -17,3 +17,5 @@
 - Implemented the tests in the Page Object Model design pattern
 
 - Installed Prettier and ESLint to help solve common errors and consistency your code base
+  <img width="700" alt="image" src="https://github.com/lengochoangminh/Cypress-TypeScript-PoC/assets/29770042/d21a12d6-942f-4ccd-8562-cfa8b98dd022">
+  <img width="900" alt="image" src="https://github.com/lengochoangminh/Cypress-TypeScript-PoC/assets/29770042/2bda1dcd-dc20-4be5-87c9-375f543cca72">
