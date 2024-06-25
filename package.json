@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve"
+    "start": "ng serve",
+    "cy:run": "cypress run --env allure=true",
+    "allure:report": "allure generate allure-results --clean -o allure-report"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",
@@ -22,6 +24,7 @@
     "@nebular/security": "10.0.0",
     "@nebular/theme": "10.0.0",
     "@swimlane/ngx-charts": "^20.1.2",
+    "allure-commandline": "^2.29.0",
     "angular2-chartjs": "0.4.1",
     "bootstrap": "4.3.1",
     "classlist.js": "1.1.20150312",
@@ -58,6 +61,7 @@
     "@fortawesome/fontawesome-free": "^5.2.0",
     "@types/leaflet": "1.2.3",
     "@types/node": "^12.12.70",
+    "allure-cypress": "^3.0.0-beta.3",
     "codelyzer": "^0.0.28",
     "conventional-changelog-cli": "^2.2.2",
     "cypress": "^13.12.0",
