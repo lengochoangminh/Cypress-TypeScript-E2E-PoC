@@ -6,7 +6,7 @@ export default [
   { files: ["**/*.{js,mjs,cjs,ts}"] },
   { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
   { languageOptions: { globals: globals.browser } },
-  { ignores: ["cypress.config.ts", "src/*"] },
+  { ignores: ["cypress.config.ts", "src/*", "allure-report"] },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
 ];

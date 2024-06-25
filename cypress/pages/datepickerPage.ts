@@ -1,36 +1,34 @@
+import { step } from "allure-js-commons";
+
 export class DatePickerPage {
   get txtCommonDatePicker() {
     return cy.get("input[placeholder='Form Picker']");
   }
-  get calendarDayCell() {
-    return cy.get(".day-cell.ng-star-inserted").find(".cell-content");
+  get calendarTodayCell() {
+    return cy.get(".today.day-cell.ng-star-inserted");
   }
 
   navigateTo() {
-    cy.visit(Cypress.env("baseUrl") + "/pages/forms/datepicker");
+    step("Navigate to Form > Date Picker ", () => {
+      cy.visit(Cypress.env("baseUrl") + "/pages/forms/datepicker");
+    });
   }
 
-  inputCommonDatePicker(date: Date) {
-    const expectedDate = date.getDate().toString();
-    const expectedMonthShot = date.toLocaleString("En-US", { month: "short" });
-    // const expectedMonthLong = date.toLocaleString("En-US", { month: "long" });
-    const expectedYear = date.getFullYear();
-    const dateToAssert = `${expectedMonthShot} ${expectedDate}, ${expectedYear}`;
-    // const expectedMonthAndYear = ` ${expectedMonthLong} ${expectedYear}`;
+  selectToday() {
+    step("Select Today as the input date", () => {
+      const date = new Date();
+      const expectedDate = date.getDate().toString();
+      const expectedMonthShot = date.toLocaleString("En-US", {
+        month: "short",
+      });
+      const expectedYear = date.getFullYear();
+      const dateToAssert = `${expectedMonthShot} ${expectedDate}, ${expectedYear}`;
 
-    this.txtCommonDatePicker.click();
-    let count = 0;
-    this.calendarDayCell.each(($e1, index) => {
-      const text = $e1.text();
-      if (text.match(expectedDate)) {
-        if (count == 1) this.calendarDayCell.eq(index).click();
-        else {
-          count++;
-        }
-      }
+      this.txtCommonDatePicker.click();
+      this.calendarTodayCell.click();
+
+      expect(this.txtCommonDatePicker.should("have.value", dateToAssert));
     });
-
-    expect(this.txtCommonDatePicker.should("have.value", dateToAssert));
   }
 }
 

@@ -1,3 +1,5 @@
+import { step } from "allure-js-commons";
+
 export class HomePage {
   get lightBulbIcon() {
     return cy.get("div.icon.status-primary");
@@ -12,36 +14,48 @@ export class HomePage {
   }
 
   navigateTo() {
-    cy.visit(Cypress.env("baseUrl"));
+    step("Navigate to Home Page - IoT Dashboard", () => {
+      cy.visit(Cypress.env("baseUrl"));
+    });
   }
 
   toggleLightOFF() {
-    this.lightBulbStatus.then(($btn) => {
-      if ($btn.text() === "ON") this.lightBulbIcon.click();
+    step("Toggle the Light is OFF", () => {
+      this.lightBulbStatus.then(($btn) => {
+        if ($btn.text() === "ON") this.lightBulbIcon.click();
+      });
     });
   }
 
   toggleLightON() {
-    this.lightBulbStatus.then(($btn) => {
-      if ($btn.text() === "OFF") this.lightBulbIcon.click();
+    step("Toggle the Light is ON", () => {
+      this.lightBulbStatus.then(($btn) => {
+        if ($btn.text() === "OFF") this.lightBulbIcon.click();
+      });
     });
   }
 
   validateLightStatus(status: string) {
-    this.lightBulbStatus.should("have.text", status);
+    step("Validate the light status", () => {
+      this.lightBulbStatus.should("have.text", status);
+    });
   }
 
   selectTheme(color: string) {
-    this.ddbTheme.click();
-    cy.get("nb-option-list nb-option").contains(color).click();
+    step("Select to change the website's theme", () => {
+      this.ddbTheme.click();
+      cy.get("nb-option-list nb-option").contains(color).click();
+    });
   }
 
   validateTheme() {
-    cy.get("nb-layout-header").should(
-      "have.css",
-      "background-color",
-      "rgb(50, 50, 89)"
-    );
+    step("Validate the website's theme", () => {
+      cy.get("nb-layout-header").should(
+        "have.css",
+        "background-color",
+        "rgb(50, 50, 89)"
+      );
+    });
   }
 }
 
