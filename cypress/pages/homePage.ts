@@ -1,6 +1,9 @@
 import { step } from "allure-js-commons";
 
 export class HomePage {
+  get coffeeMakerIcon() {
+    return cy.get("div.icon.status-warning");
+  }
   get lightBulbIcon() {
     return cy.get("div.icon.status-primary");
   }

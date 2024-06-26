@@ -20,4 +20,8 @@ import "./commands";
 // require('./commands')
 
 import "allure-cypress";
-import 'cypress-axe'
+import "cypress-axe";
+
+import { addCompareSnapshotCommand } from "cypress-visual-regression/dist/command";
+
+addCompareSnapshotCommand({ capture: "fullPage" });
