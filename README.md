@@ -27,4 +27,8 @@
   <img width="900" alt="Screenshot 2024-06-25 at 20 44 40" src="https://github.com/lengochoangminh/Cypress-TypeScript-PoC/assets/29770042/1c80c46d-6a41-4330-988a-c09339f48842">
 
 - Cypress Visual Regression. Highlighted the different GUI compared between the Base & Actual images
-  <img width="1062" alt="image" src="https://github.com/lengochoangminh/Cypress-TypeScript-PoC/assets/29770042/cf779f5a-75e1-47f2-b2f1-9f1273896f16">
+  <img width="900" alt="image" src="https://github.com/lengochoangminh/Cypress-TypeScript-PoC/assets/29770042/cf779f5a-75e1-47f2-b2f1-9f1273896f16">
+
+- CI/CD with GitHub Actions
+  <img width="900" alt="image" src="https://github.com/lengochoangminh/Cypress-TypeScript-E2E-PoC/assets/29770042/676f2bc1-d229-4178-a006-d7b22814d525">
+

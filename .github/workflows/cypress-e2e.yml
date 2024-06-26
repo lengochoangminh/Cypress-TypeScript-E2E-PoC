@@ -1,0 +1,31 @@
+name: Cypress E2E Tests
+on:
+  push:
+    branches: [5-GitHub-Action]
+  pull_request:
+    branches: [main, master]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci --force
+      - name: Install Angular web
+        run: npm start &
+      - name: Sleep for 60 seconds
+        run: sleep 60s
+        shell: bash
+      - name: Run E2E tests
+        run: npm run cy:run
+      - name: Generate Allure report
+        run: npm run allure:report
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: allure-report
+          path: allure-report/
+          retention-days: 30
