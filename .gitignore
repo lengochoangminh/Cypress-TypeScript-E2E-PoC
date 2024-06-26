@@ -45,3 +45,5 @@ allure-report
 allure-results
 
 cypress/screenshots
+cypress/snapshots/actual
+cypress/snapshots/diff
