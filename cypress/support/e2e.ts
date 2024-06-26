@@ -20,3 +20,4 @@ import "./commands";
 // require('./commands')
 
 import "allure-cypress";
+import 'cypress-axe'

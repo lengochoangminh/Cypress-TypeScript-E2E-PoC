@@ -9,8 +9,9 @@
 
 ## Execute Tests
 
-- Run all tests under e2e folder: `npx cypress run`
-- Run the tests by the specified tags: `npx cypress run --spec cypress/e2e/iotDashboard.cy.ts`
+- Run all tests under e2e folder: `npm run cy:run`
+- Run the specified test: `npx cypress run --spec cypress/e2e/iotDashboard.cy.ts`
+- Generate the Allure report: `npm run allure:report `
 
 ## Feature Keywords
 
@@ -20,5 +21,8 @@
   <img width="700" alt="image" src="https://github.com/lengochoangminh/Cypress-TypeScript-PoC/assets/29770042/d21a12d6-942f-4ccd-8562-cfa8b98dd022">
   <img width="900" alt="image" src="https://github.com/lengochoangminh/Cypress-TypeScript-PoC/assets/29770042/2bda1dcd-dc20-4be5-87c9-375f543cca72">
 
-- Allure Report
+- Integrated to Allure Report
   <img width="900" alt="image" src="https://github.com/lengochoangminh/Cypress-TypeScript-PoC/assets/29770042/f7433095-9fc4-4bed-aa50-4d4c23f57ac3">
+
+- Accessibility Test with Cypress AXE
+  <img width="900" alt="Screenshot 2024-06-25 at 20 44 40" src="https://github.com/lengochoangminh/Cypress-TypeScript-PoC/assets/29770042/1c80c46d-6a41-4330-988a-c09339f48842">

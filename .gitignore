@@ -43,3 +43,5 @@ Thumbs.db
 
 allure-report
 allure-results
+
+cypress/screenshots
