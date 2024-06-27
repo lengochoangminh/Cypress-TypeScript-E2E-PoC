@@ -15,7 +15,7 @@ jobs:
         with:
           project: ./site
           browser: chrome
-          build: npm ci --force
+          build: npm install --force
           start: npm start &
           wait-on: "http://localhost:4200"
       - name: Run E2E tests
