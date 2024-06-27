@@ -9,11 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm ci --force
-      - uses: cypress-io/github-action@v6
+      - uses: actions/setup-node@v4
         with:
-          start: npm start
+          node-version: 18
+      - run: npm ci --force
+      - name: Server
+        uses: ./
+        with:
+          working-directory: ./
+          start: npm start &
           wait-on: "http://localhost:4200"
           wait-on-timeout: 120
       - name: Run E2E tests
