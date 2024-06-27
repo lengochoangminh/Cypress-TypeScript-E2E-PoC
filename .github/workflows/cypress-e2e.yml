@@ -9,14 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
       - name: Install dependencies
         run: npm ci --force
-      - name: Install and Start Angular web
-        uses: ./
+      - uses: cypress-io/github-action@v6
         with:
-          start: npm start &
+          start: npm start
           wait-on: "http://localhost:4200"
-          wait-on-timeout: 130
+          wait-on-timeout: 120
       - name: Run E2E tests
         run: npm run cy:run
       - name: Generate Allure report
