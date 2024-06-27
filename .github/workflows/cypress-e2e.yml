@@ -14,11 +14,12 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm ci --force
-      - name: Install Angular web
-        run: npm start &
-      - name: Sleep for 60 seconds
-        run: sleep 60s
-        shell: bash
+      - name: Install and Start Angular web
+        uses: ./
+        with:
+          start: npm start &
+          wait-on: "http://localhost:4200"
+          wait-on-timeout: 130
       - name: Run E2E tests
         run: npm run cy:run
       - name: Generate Allure report
