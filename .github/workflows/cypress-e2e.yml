@@ -4,20 +4,44 @@ on:
     branches: [5-GitHub-Action]
   pull_request:
     branches: [main, master]
+
 jobs:
-  job1:
+  install:
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node-20.12.0-chrome-123.0.6312.86-1-ff-124.0.2-edge-123.0.2420.65-1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Cypress run
-        uses: cypress-io/github-action@v3
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v6
         with:
-          project: ./site
-          browser: chrome
-          build: npm install --force
+          runTests: false
+      - run: npm ci --force
+
+  ui-chrome-tests:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node-20.12.0-chrome-123.0.6312.86-1-ff-124.0.2-edge-123.0.2420.65-1
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: "UI Tests - Chrome"
+        uses: cypress-io/github-action@v6
+        with:
           start: npm start &
           wait-on: "http://localhost:4200"
+          wait-on-timeout: 120
+          browser: chrome
+          record: true
+          parallel: true
+          group: "UI - Chrome"
+          spec: cypress/e2e/*
+          config-file: cypress.config.ts
       - name: Run E2E tests
         run: npm run cy:run
       - name: Generate Allure report
